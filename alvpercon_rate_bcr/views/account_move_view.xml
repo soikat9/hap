@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="view_move_form_bcrn" model="ir.ui.view">
+		<field name="name">account.move.form.bcrn</field>
+		<field name="model">account.move</field>
+		<field name="inherit_id" ref="account.view_move_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//tree[@id='prueba3']" position="inside">
+            	<field name="tipo_cambio" invisible = "1" />				
+				<field name="tipo_cambio_r" optional="hide" />
+				<field name="debit_d" sum="Total debit_d" optional="hide"/>
+				<field name="debit_da" sum="Total debit_d" invisible = "1"/>
+				<field name="credit_d" sum="Total credit_d" optional="hide"/>
+				<field name="credit_da" sum="Total credit_d" invisible = "1"/>
+				
+            </xpath>
+		<!-- tener en cuenta que se tiene que ingresar el atributo id='prueba3'
+		 en la etiqueta tree editable="bottom" linea 338
+		 <tree id='prueba3' editable="bottom" string="Journal Items" decoration-muted="display_type in ('line_section', 'line_note')" default_order="sequence, date desc, move_name desc, id"> en la vista principal	 -->
+			
+		</field>
+	</record>
+	<record id="view_move_form_bcrnt" model="ir.ui.view">
+		<field name="name">account.move.form.bcrnt</field>
+		<field name="model">account.move.line</field>
+		<field name="inherit_id" ref="account.view_move_line_tree_grouped"/>
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='amount_currency']" position="after">
+            	<field name="tipo_cambio" invisible = "1"/>
+				<field name="tipo_cambio_r" optional="hide" />
+				<field name="debit_d" sum="Total debit_d" optional="hide"/>
+				<field name="debit_da" sum="Total debit_d" invisible = "1"/>
+				<field name="credit_d" sum="Total credit_d" optional="hide"/>
+				<field name="credit_da" sum="Total credit_d" invisible = "1"/>
+				<field name="amount_currency_d" optional="hide"/>
+												
+            </xpath>
+			<xpath expr="//field[@name='date']" position="after">
+            	<field name="move_name" optional="hide"/>
+				<field name="invoice_date" optional="hide"/>				
+            </xpath>
+			
+			
+		</field>
+	</record>
+
+		<record id="view_move_form_apuntes" model="ir.ui.view">
+		<field name="name">account.move.form.apuntes</field>
+		<field name="model">account.move.line</field>
+		<field name="inherit_id" ref="account.view_move_line_tree"/>
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='amount_currency']" position="after">
+            	<field name="tipo_cambio" invisible = "1"/>
+				<field name="tipo_cambio_r" optional="hide" />
+				<field name="debit_d" sum="Total debit_d" optional="hide"/>
+				<field name="debit_da" sum="Total debit_d" invisible = "1"/>
+				<field name="credit_d" sum="Total credit_d" optional="hide"/>
+				<field name="credit_da" sum="Total credit_d" invisible = "1"/>
+				<field name="amount_currency_d" optional="hide"/>
+												
+            </xpath>
+			<xpath expr="//field[@name='date']" position="after">
+            	<field name="move_name" optional="hide"/>
+				<field name="invoice_date" optional="hide"/>				
+            </xpath>
+			
+			
+		</field>
+	</record>
+	<record id="view_account_move_form_apertura_alv" model="ir.ui.view">
+        <field name="name">account.move.form.apertura.alv</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="solse_pe_edi.view_move_form_or"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='es_x_apertura']" position="after">
+                <field name="es_diario_apert" groups="solse_pe_cpe.group_solse_pe_cpe_accountant" />
+               
+            </xpath>
+        </field>
+    </record>
+	
+</odoo>
