@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="action_account_report_multicurrency_revaluation_conversion" model="ir.actions.client">
+        <field name="name">Proceso de Diferencia por Conversion</field>
+        <field name="tag">dv_account_report</field>
+        <field name="context" eval="{'model': 'account.multicurrency.revaluation.conversion'}" />
+    </record>
+    <menuitem id="menu_action_account_report_multicurrency_revaluation_conversion" action="action_account_report_multicurrency_revaluation_conversion" parent="account.account_reports_management_menu" groups="base.group_multi_currency"/>
+</odoo>
